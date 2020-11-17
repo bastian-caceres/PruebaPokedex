@@ -14,6 +14,13 @@ $(document).ready(function () {
       // numero del pokemon
       let id = "#" + infoPoke.id;
 
+      // img front and back gif 
+      let imgGitF = infoPoke.sprites.versions['generation-v']['black-white'].animated.front_default;
+      let imgGitB = infoPoke.sprites.versions['generation-v']['black-white'].animated.back_default;
+      // img front and back gif  shiny
+      let imgShinyGitF = infoPoke.sprites.versions['generation-v']['black-white'].animated.front_shiny;
+      let imgShinyGitB = infoPoke.sprites.versions['generation-v']['black-white'].animated.back_shiny;
+
       //imagenes fontales y traceras 
       let pokeImgFront = infoPoke.sprites.front_default;
       let pokeImgBack = infoPoke.sprites.back_default;
@@ -64,18 +71,16 @@ $(document).ready(function () {
         }
       };   
 
-      
-
       // funcion btn imagen pokemon normal
       $("#defaultBtn").click(function () {
-        $("#pokeImage").attr("src", pokeImgFront);
+        $("#pokeImage").attr("src", imgGitF ? imgGitF : pokeImgFront);
         shiny = false;
         frontImg = true;
       });
 
       // funcion btn imagen pokemon shiny
       $("#shinyBtn").click(function () {
-        $("#pokeImage").attr("src", pokeImgShinyFront);
+        $("#pokeImage").attr("src", imgShinyGitF ? imgShinyGitF : pokeImgShinyFront);
         shiny = true;
         frontImg = true;
       });
@@ -85,22 +90,22 @@ $(document).ready(function () {
         if (shiny == false && frontImg == true) {
           shiny = false;
           frontImg = false;
-          $("#pokeImage").attr("src", pokeImgBack);
+          $("#pokeImage").attr("src", imgGitB ? imgGitB : pokeImgBack);
 
         } else if (shiny == false && frontImg == false) {
           shiny = false;
           frontImg = true;
-          $("#pokeImage").attr("src", pokeImgFront);
+          $("#pokeImage").attr("src", imgGitF ? imgGitF : pokeImgFront);
 
         } else if (shiny == true && frontImg == true) {
           shiny = true;
           frontImg = false;
-          $("#pokeImage").attr("src", pokeImgShinyBack);
+          $("#pokeImage").attr("src", imgShinyGitB ? imgShinyGitB : pokeImgShinyBack);
 
         } else if (shiny == true && frontImg == false) {
           shiny = true;
           frontImg = true;
-          $("#pokeImage").attr("src", pokeImgShinyFront);
+          $("#pokeImage").attr("src", imgShinyGitF ? imgShinyGitF : pokeImgShinyFront);
         }
       });
 
@@ -146,13 +151,11 @@ $(document).ready(function () {
       // dstos principales del pokemon
       $(".name").html(name);
       $(".idNum").html(id);
-      $("#pokeImage").attr("src", pokeImgFront);
+      $("#pokeImage").attr("src", imgGitF ? imgGitF : pokeImgFront);
 
       // altura y peso
       $(".weight").html(weight);
       $(".height").html(height);
-
-
 
       pokemonType(types);
       pokemonHability(habilities);
@@ -164,10 +167,6 @@ $(document).ready(function () {
   }); //AJAX
 
   // busca el pokemon o numero ingresado
-
-  // $('#buscando').on('click',(e)=>{
-  // });
-
   let buscar = (e) => {
 
     e.preventDefault();
@@ -182,11 +181,17 @@ $(document).ready(function () {
 
         let infoPoke = response;
         let name = infoPoke.name;
+
+        // img front and back gif 
+        let imgGitF = infoPoke.sprites.versions['generation-v']['black-white'].animated.front_default;
+        let imgGitB = infoPoke.sprites.versions['generation-v']['black-white'].animated.back_default;
+        // img front and back gif  shiny
+        let imgShinyGitF = infoPoke.sprites.versions['generation-v']['black-white'].animated.front_shiny;
+        let imgShinyGitB = infoPoke.sprites.versions['generation-v']['black-white'].animated.back_shiny;
         
         //imagenes fontales y traceras 
         let pokeImgFront = infoPoke.sprites.front_default;
         let pokeImgBack = infoPoke.sprites.back_default;
-
         //imagenes fontales y traceras shiny
         let pokeImgShinyFront = infoPoke.sprites.front_shiny;
         let pokeImgShinyBack = infoPoke.sprites.back_shiny;
@@ -243,29 +248,17 @@ $(document).ready(function () {
               `);
           }          
         };  
-        
-        // array vacio de los movimiento de cada pokemon
-        // let moves = [];
-        // // genera todo los movimientos del pokemon
-        // for (let i = 0; i < infoPoke.moves.length; i++) {
-        //   let move = infoPoke.moves[i].move;
-        //   let moveName = move.name;
-        //   console.log(moveName)
-        //   moves.push(moveName);
-        // }
-
-     
-        
-        // funcion imagen pokemon normal
+           
+        // funcion btn imagen pokemon normal
         $("#defaultBtn").click(function () {
-          $("#pokeImage").attr("src", pokeImgFront);
+          $("#pokeImage").attr("src", imgGitF ? imgGitF : pokeImgFront);
           shiny = false;
           frontImg = true;
         });
 
-        // funcion imagen pokemon shiny
+        // funcion btn imagen pokemon shiny
         $("#shinyBtn").click(function () {
-          $("#pokeImage").attr("src", pokeImgShinyFront);
+          $("#pokeImage").attr("src", imgShinyGitF ? imgShinyGitF : pokeImgShinyFront);
           shiny = true;
           frontImg = true;
         });
@@ -275,22 +268,22 @@ $(document).ready(function () {
           if (shiny == false && frontImg == true) {
             shiny = false;
             frontImg = false;
-            $("#pokeImage").attr("src", pokeImgBack);
+            $("#pokeImage").attr("src", imgGitB ? imgGitB : pokeImgBack);
 
           } else if (shiny == false && frontImg == false) {
             shiny = false;
             frontImg = true;
-            $("#pokeImage").attr("src", pokeImgFront);
+            $("#pokeImage").attr("src", imgGitF ? imgGitF : pokeImgFront);
 
           } else if (shiny == true && frontImg == true) {
             shiny = true;
             frontImg = false;
-            $("#pokeImage").attr("src", pokeImgShinyBack);
+            $("#pokeImage").attr("src", imgShinyGitB ? imgShinyGitB : pokeImgShinyBack);
 
           } else if (shiny == true && frontImg == false) {
             shiny = true;
             frontImg = true;
-            $("#pokeImage").attr("src", pokeImgShinyFront);
+            $("#pokeImage").attr("src", imgShinyGitF ? imgShinyGitF : pokeImgShinyFront);
           }
         });
         
@@ -335,7 +328,7 @@ $(document).ready(function () {
         // estadisticas de los pokemones
         $(".name").html(name);
         $(".idNum").html(id);
-        $("#pokeImage").attr("src", pokeImgFront);
+        $("#pokeImage").attr("src", imgGitF ? imgGitF : pokeImgFront);
         
         // altura y peso
         $(".weight").html(weight);
