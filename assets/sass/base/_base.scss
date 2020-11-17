@@ -1,0 +1,32 @@
+/* pagina  principal */
+#page {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background-image: url("../img/fondo4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* container princiapl */
+.poke-container {
+  width: 100%;
+  background-image: url("../img/fondo2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}

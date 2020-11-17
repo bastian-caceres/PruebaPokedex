@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokedex</title>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <!-- icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <!-- sweetalert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <!-- css -->
+  <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+
+<body>
+  <div id="page">  
+      <div class="container">
+
+        <header>
+          <!-- nombre principal -->
+          <div class="col-lg-12 text-center">
+            <img class="imgtitulo" src="https://fontmeme.com/permalink/201106/cf773afac5fcf6dac24f59f19ca387b2.png" alt=""> 
+            <hr>
+          </div>
+        </header>
+        
+        <section></section>
+
+          <div class="row">          
+            <div class="poke-container result card-body">
+
+              <!-- buscador -->
+              <div class="searchBar">
+                <form>
+                  <div class="search-wrap">
+                    <spam class="text-white">Ingresa el nombre o numero del pokemon a elegir: </spam>
+                    <input type="text" name="pokemon" id="buscarPoke" placeholder="Ej: Charizard o 6" aria-label="Busca">
+                    <button id="btnBuscar" class="btn text-white" type="submit"> <i class="fab fa-searchengin fa-2x"></i> </button>
+                  </div>
+                </form>
+              </div>
+
+              <img class="imgtitulo2" src="https://fontmeme.com/permalink/201106/d7efdbafb7979fdabb64ae0049a14ef0.png" alt="">
+
+              <!-- contendor de datos -->
+              <div id="pokeOutput">
+                
+                <!-- color de fondo -->
+                <div class="top-container">
+
+                  <!-- almacena los botones dentro del contenedor -->
+                  <div class="image-container text-white border-0">
+
+                    <!-- menu de navegacion -->
+                    <div id="pic-nav">
+                      <button type="button" class="changeBtn" aria-label="Girar izquierda"> <i class="fas fa-angle-left"></i> </button>
+                      <button type="button" id="defaultBtn" class="bigBtn">Normal</button>
+                      <button type="button" id="shinyBtn" class="bigBtn">Shiny</button>
+                      <button type="button" class="changeBtn" aria-label="Girar derecha"> <i class="fas fa-angle-right"></i> </button>
+                    </div>
+
+                    <!-- nombre y numero del pokemon -->
+                    <div class="p-2">
+                      <!-- nombre del pokemon-->
+                      <span class="name poke-info"></span>
+                      <!-- numero del pokemon-->
+                      <span class="idNum poke-info"></span>
+                    </div>
+
+                    <!-- peso y altura del pokemon -->
+                    <div class="p-2">
+                      <span class="poke-info"><span class="error2"></span></span>
+                      <span class="poke-info"><span class="weight"></span></span>
+                      <span class="poke-info"><span class="height"></span></span>
+                    </div>
+
+                    <!-- imagen del pokemon -->
+                    <img src="" alt="" id="pokeImage">
+
+                    <!-- datos del tipo de pokemon -->
+                    <div class="p-2" id="types"></div>
+
+                  </div>
+
+                  <!-- habilidades de los pokemon -->
+                  <div class="row">
+
+                    <!-- cambia color a la tabla -->
+                    <div class="table-responsive col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                      <table class="table table-sm table-hover table-dark text-center">
+                        <thead>
+                            <tr class="bg-info">
+                                <th scope="col">Habilidades</th>
+                            </tr>
+                        </thead>
+                        <tbody id="habilitys"></tbody>
+                      </table>                                                         
+                    </div>
+
+                    <!-- grafico con las estaditicas del pokemon -->
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" >
+                      <div id="chartContainer"></div>
+                    </div>
+
+                  </div>              
+                </div>
+              </div> 
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>

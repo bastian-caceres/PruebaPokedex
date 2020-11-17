@@ -1,0 +1,30 @@
+/* mantiene los botones en linea en tamaños pequeños*/
+.image-container {
+    white-space: nowrap;
+    font-size: 1.2rem;
+  }
+
+/* propiedades panel de botones centrales*/
+button {
+  display: inline-block;
+  margin: 0;
+  position: relative;
+}
+
+button:active {
+  background-color: #8b8fa5;
+}
+
+.bigBtn {
+  height: 40px;
+  width: 39%;
+  font-weight: 700;
+  top: -2px;
+}
+
+/* propiedades panel de botones laterales*/
+.changeBtn {
+  height: 39px;
+  width: 10%;
+  font-size: 1.5rem;
+}

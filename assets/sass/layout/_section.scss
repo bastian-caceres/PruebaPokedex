@@ -1,0 +1,55 @@
+/* donde se muetran los datos del pokemon */
+#pokeOutput {
+  width: 100%;
+  padding: 10px;
+}
+
+/* imagen del pokemon */
+#pokeImage {
+  display: block;
+  margin: 10px auto;
+  width: 200px;
+  position: relative;
+}
+
+/* texto nombre pokemon  */
+.name {
+  display: block;
+  text-transform: capitalize;
+  font-size: 1.6rem;
+}
+
+/* tamaño que muestra el tipo de pokemon  */
+.poke-info {
+  display: inline-block;
+  margin-right: 2px;
+}
+
+/* tabla habilidades pokemon*/
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+th,
+td {
+  color: #f1f6ff;
+  border: 1px solid #000000;
+  text-align: center;
+  padding: 8px;
+}
+
+th {
+  background-color: #7b0b06;
+}
+
+td {
+  background-color: #7a706f;
+}
+
+// tamaño grafico
+#chartContainer {
+  height: 370px;
+  width: 100%;
+}
