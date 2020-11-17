@@ -81,6 +81,10 @@
 
                     <!-- imagen del pokemon -->
                     <img src="" alt="" id="pokeImage">
+                    <div class="text-center">
+                      <button type="button" id="megaX" class="BtnMega">Mega-X</button>
+                      <button type="button" id="megaY" class="BtnMega">Mega-Y</button>
+                    </div>
 
                     <!-- datos del tipo de pokemon -->
                     <div class="p-2" id="types"></div>
@@ -93,6 +97,12 @@
                     <!-- cambia color a la tabla -->
                     <div class="table-responsive col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                       <table class="table table-sm table-hover table-dark text-center">
+                        <thead>
+                          <tr class="bg-info">
+                              <th scope="col">Descripción</th>
+                          </tr>
+                        </thead>
+                        <tbody id="textos"></tbody>
                         <thead>
                             <tr class="bg-info">
                                 <th scope="col">Habilidades</th>

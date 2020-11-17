@@ -164,7 +164,67 @@ $(document).ready(function () {
       $('input').val("");
     }
 
-  }); //AJAX
+  }); //AJAX Buscar Fijo
+
+  //descripcion
+  $.ajax({
+    type: 'GET',
+    url: `https://pokeapi.co/api/v2/pokemon-species/6`,
+    dataType: 'json',
+    success: function(response){
+      let infoPoke = response;
+
+      infoPoke.flavor_text_entries.forEach(function (e) {  
+
+          if (e.language.name == "es") {
+              $('#textos').html(`
+                <tr>
+                  <td>${e.flavor_text}</td>
+                </tr>
+              `);
+          }
+      })
+    },
+    error: function (error) {  
+        console.log(error);
+    }
+  }) // AJAX descripcion
+
+  //megaEvolucion X Charizard
+  $.ajax({
+    type: 'GET',
+    url: `https://pokeapi.co/api/v2/pokemon/10034/`,
+    dataType: 'json',
+    success: function(response){
+      let infoPoke = response;
+      let megaX = infoPoke.sprites.front_default;
+
+      $("#megaX").click(function () {
+        $("#pokeImage").attr("src", megaX);
+      }); 
+    },
+    error: function (error) {  
+        console.log(error);
+    }
+  }) // AJAX megaEvolucion X
+
+  //megaEvolucion Y Charizard
+  $.ajax({
+    type: 'GET',
+    url: `https://pokeapi.co/api/v2/pokemon/10035/`,
+    dataType: 'json',
+    success: function(response){
+      let infoPoke = response;
+      let megaY = infoPoke.sprites.front_default;
+
+      $("#megaY").click(function () {
+        $("#pokeImage").attr("src", megaY);
+      }); 
+    },
+    error: function (error) {  
+        console.log(error);
+    }
+  }) // AJAX megaEvolucion Y
 
   // busca el pokemon o numero ingresado
   let buscar = (e) => {
@@ -329,6 +389,8 @@ $(document).ready(function () {
         $(".name").html(name);
         $(".idNum").html(id);
         $("#pokeImage").attr("src", imgGitF ? imgGitF : pokeImgFront);
+        $("#megaX").attr("disabled","false");
+        $("#megaY").attr("disabled","false");
         
         // altura y peso
         $(".weight").html(weight);
@@ -349,8 +411,31 @@ $(document).ready(function () {
           // footer: `Ingrese un nunmero o nombre valido`
         })
       }
+    }); //AJAX Buscar
 
-    }); //AJAX
+    //descripcion
+    $.ajax({
+      type: 'GET',
+      url: `https://pokeapi.co/api/v2/pokemon-species/${entrada.toLowerCase()}`,
+      dataType: 'json',
+      success: function(response){
+        let infoPoke = response;
+
+        infoPoke.flavor_text_entries.forEach(function (e) {  
+
+            if (e.language.name == "es") {
+                $('#textos').html(`
+                  <tr>
+                    <td>${e.flavor_text}</td>
+                  </tr>
+                `);
+            }
+        })
+      },
+      error: function (error) {  
+          console.log(error);
+      }
+    }) // AJAX descripcion
     
   }
   
