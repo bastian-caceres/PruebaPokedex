@@ -204,12 +204,12 @@ $(document).ready(function () {
       // numero del pokemon
       let id = "#" + infoPoke.id;
       // imagen mas clara
-      let megaX2 = infoPoke.sprites.other['official-artwork'].front_default;
+      let megaX = infoPoke.sprites.other['official-artwork'].front_default;
 
       // agrega todos los datos de la mega evolucion al hacer click
       $("#megaX").click(function () {
         // imagen
-        $("#pokeImage").attr("src", megaX2);
+        $("#pokeImage").attr("src", megaX);
 
         // habilidades
         let hability = infoPoke.abilities[0].ability.name;
@@ -232,7 +232,7 @@ $(document).ready(function () {
 
         pokemonType(types);
       });  
-      
+
     },
     error: function (error) {  
         console.log(error);
@@ -246,7 +246,7 @@ $(document).ready(function () {
     dataType: 'json',
     success: function(response){
       let infoPoke = response;
-      let megaY = infoPoke.sprites.front_default;
+      let megaY = infoPoke.sprites.other['official-artwork'].front_default;
 
       $("#megaY").click(function () {
         $("#pokeImage").attr("src", megaY);
