@@ -73,6 +73,7 @@ $(document).ready(function () {
 
       // funcion btn imagen pokemon normal
       $("#defaultBtn").click(function () {
+        // carga imagen frontal
         $("#pokeImage").attr("src", imgGitF ? imgGitF : pokeImgFront);
         shiny = false;
         frontImg = true;
@@ -197,11 +198,41 @@ $(document).ready(function () {
     dataType: 'json',
     success: function(response){
       let infoPoke = response;
-      let megaX = infoPoke.sprites.front_default;
 
+      // nombre pokemon
+      let name = infoPoke.forms[0].name;
+      // numero del pokemon
+      let id = "#" + infoPoke.id;
+      // imagen mas clara
+      let megaX2 = infoPoke.sprites.other['official-artwork'].front_default;
+
+      // agrega todos los datos de la mega evolucion al hacer click
       $("#megaX").click(function () {
-        $("#pokeImage").attr("src", megaX);
-      }); 
+        // imagen
+        $("#pokeImage").attr("src", megaX2);
+
+        // habilidades
+        let hability = infoPoke.abilities[0].ability.name;
+        $('#habilitys').html(`<tr><td>${hability}</td></tr>`);
+
+        // tipo de pokemon
+        let types = [];
+        // genera el tipo de elementos de un pokemon  
+        for (let i = 0; i < infoPoke.types.length; i++) {
+          let type = infoPoke.types[i].type.name;
+          types.push(type);
+        }
+        //envia un div al html con los tipos correspondientes a cada pokemon
+        function pokemonType(types) {
+          $("#types").html("");
+          for (let i = 0; i < types.length; i++) {
+            $("#types").append( "<div class='pokeType poke-info " + types[i] + "'>" + types[i] + " </div>" );
+          }
+        };
+
+        pokemonType(types);
+      });  
+      
     },
     error: function (error) {  
         console.log(error);
